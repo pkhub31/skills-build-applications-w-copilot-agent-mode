@@ -16,7 +16,7 @@ export function collectionItems(payload) {
   return []
 }
 
-export function useCollection(resource) {
+export function useCollection(endpoint) {
   const [items, setItems] = useState([])
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
@@ -24,7 +24,7 @@ export function useCollection(resource) {
   useEffect(() => {
     const controller = new AbortController()
 
-    fetch(`${API_BASE_URL}/api/${resource}/`, { signal: controller.signal })
+    fetch(`${API_BASE_URL}${endpoint}`, { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error(`Request failed (${response.status})`)
         return response.json()
@@ -40,7 +40,7 @@ export function useCollection(resource) {
       })
 
     return () => controller.abort()
-  }, [resource])
+  }, [endpoint])
 
   return { items, status, error }
 }

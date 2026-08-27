@@ -1,7 +1,7 @@
 import { useCollection } from '../api'
 
 function Users() {
-  const { items, status, error } = useCollection('users')
+  const { items, status, error } = useCollection('/api/users/')
 
   return (
     <section>
