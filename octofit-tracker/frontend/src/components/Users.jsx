@@ -1,7 +1,9 @@
 import { useCollection } from '../api'
 
+const usersEndpoint = import.meta.env.VITE_CODESPACE_NAME ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/` : 'http://localhost:8000/api/users/'
+
 function Users() {
-  const { items, status, error } = useCollection('/api/users/')
+  const { items, status, error } = useCollection(usersEndpoint)
 
   return (
     <section>
