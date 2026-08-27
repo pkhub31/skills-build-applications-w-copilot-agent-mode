@@ -1,0 +1,59 @@
+:root { --ink: #202522; --muted: #768078; --paper: #f5f3ed; --card: #fffdf8; --line: #d9ddd3; --lime: #d8f56b; --coral: #f26f52; --blue: #8fc8e8; }
+
+.app-shell { min-height: 100vh; display: flex; background: radial-gradient(circle at 85% 12%, rgba(216,245,107,.3), transparent 23rem), var(--paper); }
+.sidebar { width: 270px; min-height: 100vh; padding: 34px 27px 25px; background: var(--ink); color: #f7f6ef; display: flex; flex-direction: column; }
+.brand-mark { display: flex; align-items: center; gap: 12px; letter-spacing: -.04em; }
+.brand-mark img { width: 39px; height: 39px; object-fit: contain; border-radius: 50%; background: var(--lime); }
+.brand-mark strong { display: block; font-size: 22px; line-height: 1; }
+.brand-mark small { display: block; margin-top: 4px; color: #9aa59b; font: 10px 'DM Mono', monospace; letter-spacing: .16em; }
+.sidebar-note { margin: 70px 0 31px; color: #aeb8ad; font-size: 14px; line-height: 1.55; }
+.main-nav { display: grid; gap: 7px; }
+.nav-link { display: flex; align-items: center; gap: 13px; padding: 11px 0; color: #aeb8ad; text-decoration: none; font-size: 15px; transition: color .2s, transform .2s; }
+.nav-link:hover, .nav-link.active { color: #fff; transform: translateX(4px); }
+.nav-link.active { font-weight: 600; }
+.nav-index { color: #657168; font: 11px 'DM Mono', monospace; }
+.nav-link.active .nav-index { color: var(--lime); }
+.connection { margin-top: auto; padding-top: 20px; border-top: 1px solid #3b443e; color: #aeb8ad; font: 11px 'DM Mono', monospace; line-height: 1.8; }
+.connection div { overflow-wrap: anywhere; color: #6f7c71; }
+.status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: var(--lime); }
+.main-content { width: min(100%, 1100px); padding: 0 62px 80px; }
+.topbar { display: flex; justify-content: space-between; padding: 27px 0 70px; color: var(--muted); font: 11px 'DM Mono', monospace; text-transform: uppercase; letter-spacing: .07em; }
+.live-label { color: #559b58; }
+.page-heading { margin-bottom: 42px; }
+.eyebrow { color: var(--coral); font: 11px 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }
+h1 { margin: 8px 0 7px; color: var(--ink); font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: .95; letter-spacing: -.075em; }
+.page-heading p { color: var(--muted); font-size: 16px; }
+.profile-card, .team-card, .workout-card { height: 100%; padding: 25px; border: 1px solid var(--line); background: var(--card); box-shadow: 5px 5px 0 rgba(32,37,34,.06); }
+.profile-card h2, .team-card h2, .workout-card h2 { margin: 16px 0 4px; font-size: 20px; letter-spacing: -.04em; }
+.profile-card p, .team-card p, .workout-card p { color: var(--muted); font-size: 14px; }
+.avatar { display: grid; place-items: center; width: 45px; height: 45px; background: var(--blue); color: var(--ink); border-radius: 50%; font-size: 20px; font-weight: 600; }
+.team-card { border-top: 4px solid var(--lime); }
+.team-card h2 { margin-top: 0; }
+.team-count, .workout-top { color: var(--muted); font: 11px 'DM Mono', monospace; }
+.activity-table { --bs-table-bg: transparent; --bs-border-color: var(--line); color: var(--ink); }
+.activity-table th { color: var(--muted); font: 11px 'DM Mono', monospace; text-transform: uppercase; }
+.activity-table td { padding: 20px 10px; }
+.leaderboard-list { max-width: 760px; border-top: 1px solid var(--ink); }
+.leaderboard-row { display: grid; grid-template-columns: 70px 1fr auto; gap: 20px; align-items: center; padding: 19px 0; border-bottom: 1px solid var(--line); }
+.rank { color: var(--coral); font: 14px 'DM Mono', monospace; }
+.leaderboard-name { font-size: 18px; }
+.leaderboard-row strong { font: 14px 'DM Mono', monospace; }
+.workout-card { background: var(--ink); color: #f7f6ef; }
+.workout-card h2 { color: #f7f6ef; }
+.workout-card p, .workout-top { color: #9aa59b; }
+.workout-top { display: flex; justify-content: space-between; }
+.workout-card ul { margin: 20px 0 0; padding-left: 18px; color: #c6cec1; font-size: 13px; line-height: 1.8; }
+.state { padding: 24px 0; color: var(--muted); font: 13px 'DM Mono', monospace; }
+.state-error { color: var(--coral); }
+
+@media (max-width: 720px) {
+  .app-shell { display: block; }
+  .sidebar { width: 100%; min-height: auto; padding: 22px 20px 17px; }
+  .sidebar-note, .connection { display: none; }
+  .main-nav { display: flex; gap: 17px; margin-top: 23px; overflow-x: auto; }
+  .nav-link { flex: 0 0 auto; padding: 5px 0; font-size: 13px; }
+  .main-content { padding: 0 20px 50px; }
+  .topbar { padding: 20px 0 55px; }
+  .topbar span:first-child { max-width: 130px; }
+  .leaderboard-row { grid-template-columns: 42px 1fr auto; gap: 10px; }
+}
